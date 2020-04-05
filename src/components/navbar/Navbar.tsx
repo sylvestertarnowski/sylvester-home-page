@@ -1,16 +1,21 @@
 import React from 'react';
-import { AppBar, Toolbar, Button, Typography } from '@material-ui/core';
-import { Home } from '@material-ui/icons';
+import './Navbar.css';
+import { Link } from 'react-router-dom';
+import { routes } from '../../App';
 
 const Navbar = () => {
   return (
-    <AppBar position="sticky">
-      <Toolbar>
-        <Home />
-        <Typography variant="h6">Sylvester</Typography>
-        <Button color="inherit">Contact</Button>
-      </Toolbar>
-    </AppBar>
+    <div className="Navbar">
+      <nav className="Navbar-nav">
+        <ul className="Navbar-ul">
+          {routes.map((route) => (
+            <li>
+              <Link to={route.path}>{route.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
   );
 };
 
